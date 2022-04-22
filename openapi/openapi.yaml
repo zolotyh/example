@@ -26,6 +26,7 @@ servers:
       tenant:
         default: www
         description: Your tenant id
+    description: Hello
   - url: 'https://example.com/api/v1'
 paths:
   '/users/{username}':
@@ -36,6 +37,60 @@ paths:
     $ref: paths/path-item.yaml
   /pathItemWithExamples:
     $ref: paths/path-item-with-examples.yaml
+  '/replants/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-replants
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: fgfdgdfgdfgdfgdf
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+      description: vcxvxcvxcvxcv fsdfsdfsdfds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./components/schemas/User.yaml
+    post:
+      summary: ''
+      operationId: post-replants
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - type: object
+                  properties:
+                    id:
+                      type: string
+                    email:
+                      type: string
+                      description: Мой супер-пупер email
+                      format: email
+                    '':
+                      type: string
+                  required:
+                    - email
+                - $ref: ./components/schemas/Email.yaml
+        description: 'Hello '
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: fdsfdsfdsfsd
 components:
   securitySchemes:
     main_auth:
